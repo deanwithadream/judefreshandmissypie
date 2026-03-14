@@ -15,27 +15,18 @@ exports.handler = async function(event) {
   }
 
   try {
-    // Use the channel handle directly to get channel info
+    // Search by name instead of handle
     const channelRes = await fetchURL(
-      `https://www.googleapis.com/youtube/v3/channels?part=snippet&forHandle=god1stJudeandMissyPie&key=${API_KEY}`
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&q=Jude+and+Missy+Pie+God+First&type=channel&maxResults=5&key=${API_KEY}`
     );
 
-    if (!channelRes.items || channelRes.items.length === 0) {
-      throw new Error('Channel not found');
-    }
-
-    const channelId = channelRes.items[0].id;
-
-    // Get latest videos
-    const videos = await fetchURL(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&maxResults=8&order=date&type=video&key=${API_KEY}`
-    );
-
+    // Return raw results so we can see what YouTube finds
     return {
       statusCode: 200,
       headers: { 'Access-Control-Allow-Origin': '*' },
-      body: JSON.stringify(videos)
+      body: JSON.stringify(channelRes)
     };
+
   } catch (e) {
     return {
       statusCode: 500,
