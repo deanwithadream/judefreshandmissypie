@@ -2,7 +2,6 @@ const https = require('https');
 
 exports.handler = async function(event) {
   const API_KEY = process.env.YOUTUBE_API_KEY;
-  const handle = 'god1stJudeandMissyPie';
 
   function fetchURL(url) {
     return new Promise((resolve, reject) => {
@@ -16,13 +15,18 @@ exports.handler = async function(event) {
   }
 
   try {
-    // Step 1: find channel ID
-    const search = await fetchURL(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${handle}&type=channel&maxResults=1&key=${API_KEY}`
+    // Use the channel handle directly to get channel info
+    const channelRes = await fetchURL(
+      `https://www.googleapis.com/youtube/v3/channels?part=snippet&forHandle=god1stJudeandMissyPie&key=${API_KEY}`
     );
-    const channelId = search.items[0].snippet.channelId;
 
-    // Step 2: get latest videos
+    if (!channelRes.items || channelRes.items.length === 0) {
+      throw new Error('Channel not found');
+    }
+
+    const channelId = channelRes.items[0].id;
+
+    // Get latest videos
     const videos = await fetchURL(
       `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&maxResults=8&order=date&type=video&key=${API_KEY}`
     );
