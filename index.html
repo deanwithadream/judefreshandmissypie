@@ -238,38 +238,18 @@ footer{background:#000;border-top:1px solid #0d0d0d;padding:32px 56px;display:fl
 </footer>
 
 <script>
-/* ---- YOUTUBE VIDEO LOADER ---- */
-var YT_API_KEY = 'AIzaSyBGD2GOBufXsr8lC-2iZT7xyPyvcug6IHE';
-var YT_HANDLE  = 'god1stJudeandMissyPie';
-
+/* ---- YOUTUBE VIDEO LOADER (via Netlify Function) ---- */
 async function loadVideos() {
   var grid = document.getElementById('video-grid');
   grid.innerHTML = '<div class="loading-state">Loading videos from YouTube...</div>';
   try {
-    // Resolve channel ID from handle
-    var searchRes = await fetch(
-      'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' + YT_HANDLE +
-      '&type=channel&maxResults=5&key=' + YT_API_KEY
-    );
-    var searchData = await searchRes.json();
-    if (searchData.error) throw new Error(searchData.error.message);
-
-    var channelId = null;
-    if (searchData.items && searchData.items.length > 0) {
-      channelId = searchData.items[0].snippet.channelId;
-    }
-    if (!channelId) throw new Error('Channel not found.');
-
-    // Fetch latest 8 videos
-    var vidRes = await fetch(
-      'https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=' + channelId +
-      '&maxResults=8&order=date&type=video&key=' + YT_API_KEY
-    );
-    var vidData = await vidRes.json();
-    if (vidData.error) throw new Error(vidData.error.message);
+    // Call our Netlify function — API key never touches the browser
+    var res = await fetch('/.netlify/functions/videos');
+    var data = await res.json();
+    if (data.error) throw new Error(data.error);
 
     grid.innerHTML = '';
-    vidData.items.forEach(function(item) {
+    data.items.forEach(function(item) {
       var vid   = item.id.videoId;
       var title = item.snippet.title;
       var thumb = (item.snippet.thumbnails.high || item.snippet.thumbnails.medium).url;
@@ -279,7 +259,7 @@ async function loadVideos() {
       card.onclick = function() { window.open(url, '_blank'); };
       card.innerHTML =
         '<div class="vc-thumb">' +
-          '<img src="' + thumb + '" alt="' + title.replace(/"/g,'&quot;') + '" loading="lazy"/>' +
+          '<img src="' + thumb + '" alt="' + title.replace(/"/g, '&quot;') + '" loading="lazy"/>' +
           '<div class="vc-overlay"><div class="vc-play">&#9654;</div></div>' +
         '</div>' +
         '<div class="vc-title">' + title + '</div>' +
