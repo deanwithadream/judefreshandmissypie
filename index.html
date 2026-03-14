@@ -16,8 +16,8 @@ body{background:#fff;color:#fff;font-family:'Barlow',sans-serif;overflow-x:hidde
 .logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;color:#000;white-space:nowrap;text-decoration:none;}
 .logo span{color:#ff1493;}
 .nav-links{display:flex;gap:28px;align-items:center;}
-.nav-links a{color:#fff;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;text-decoration:none;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
+.nav-links a{color:#000;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover{color:#ff1493;}
 .yt-btn{background:#ff1493;color:#000;font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:2px;padding:9px 20px;text-decoration:none;transition:background 0.2s;white-space:nowrap;}
 .yt-btn:hover{background:#ff69b4;}
 
@@ -40,8 +40,8 @@ body{background:#fff;color:#fff;font-family:'Barlow',sans-serif;overflow-x:hidde
 /* SECTIONS */
 .section{padding:80px 56px;}
 .sec-label{font-size:10px;letter-spacing:6px;color:#ff1493;text-transform:uppercase;font-weight:700;margin-bottom:10px;}
-.sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5.5vw,62px);letter-spacing:2px;margin-bottom:36px;}
-.view-all{font-size:10px;letter-spacing:4px;color:#fff;text-transform:uppercase;font-weight:700;text-decoration:none;border-bottom:1px solid #222;padding-bottom:2px;transition:color 0.2s;display:inline-block;margin-top:28px;}
+.sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5.5vw,62px);letter-spacing:2px;margin-bottom:36px;color:#000;}
+.view-all{font-size:10px;letter-spacing:4px;color:#000;text-transform:uppercase;font-weight:700;text-decoration:none;border-bottom:1px solid #222;padding-bottom:2px;transition:color 0.2s;display:inline-block;margin-top:28px;}
 .view-all:hover{color:#ff1493;border-color:#ff1493;}
 
 /* VIDEOS */
@@ -56,20 +56,20 @@ body{background:#fff;color:#fff;font-family:'Barlow',sans-serif;overflow-x:hidde
 .vc-thumb-placeholder{width:100%;height:100%;background:linear-gradient(135deg,#1a0800,#0d0400);display:flex;align-items:center;justify-content:center;font-size:40px;color:rgba(255,102,0,0.15);}
 .vc-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.42);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.25s;}
 .vc-play{width:52px;height:52px;border:2px solid #fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;color:#fff;padding-left:3px;}
-.vc-title{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;color:#fff;margin-top:10px;letter-spacing:0.5px;text-transform:uppercase;line-height:1.3;}
-.vc-sub{font-size:11px;color:#fff;margin-top:3px;}
-.loading-state{text-align:center;padding:48px 20px;color:#fff;font-size:11px;letter-spacing:4px;text-transform:uppercase;grid-column:1/-1;}
+.vc-title{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;color:#000;margin-top:10px;letter-spacing:0.5px;text-transform:uppercase;line-height:1.3;}
+.vc-sub{font-size:11px;color:#444;margin-top:3px;}
+.loading-state{text-align:center;padding:48px 20px;color:#000;font-size:11px;letter-spacing:4px;text-transform:uppercase;grid-column:1/-1;}
 .error-state{color:#ff4444;font-size:12px;letter-spacing:2px;}
 
 /* API PROMPT */
 .api-prompt{background:#fff3f8;border:1px solid rgba(255,20,147,0.2);border-left:3px solid #ff1493;padding:22px 26px;margin-bottom:28px;}
-.api-prompt p{font-size:13px;color:#fff;line-height:1.8;margin-bottom:14px;}
+.api-prompt p{font-size:13px;color:#000;line-height:1.8;margin-bottom:14px;}
 .api-prompt p strong{color:#ff1493;}
 .api-prompt input{width:100%;background:#000;border:1px solid #1a1a1a;border-bottom:1px solid rgba(255,102,0,0.3);color:#fff;padding:11px 14px;font-size:13px;font-family:'Barlow',sans-serif;outline:none;margin-bottom:10px;transition:border-color 0.2s;}
 .api-prompt input:focus{border-color:#ff1493;}
 .api-prompt button{background:#ff1493;color:#000;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:3px;padding:11px 26px;border:none;cursor:pointer;transition:background 0.2s;}
 .api-prompt button:hover{background:#ff69b4;}
-.api-note{font-size:10px;color:#fff;letter-spacing:1px;line-height:1.7;margin-top:10px;}
+.api-note{font-size:10px;color:#555;letter-spacing:1px;line-height:1.7;margin-top:10px;}
 
 
 
@@ -82,7 +82,7 @@ body{background:#fff;color:#fff;font-family:'Barlow',sans-serif;overflow-x:hidde
 .field label{font-size:10px;letter-spacing:3px;color:#ff1493;text-transform:uppercase;font-weight:700;}
 .field input,.field select,.field textarea{background:#f5f5f5;border:1px solid #ddd;border-bottom:2px solid #ff1493;color:#000;padding:12px 14px;font-size:13px;font-family:'Barlow',sans-serif;outline:none;transition:border-color 0.2s;-webkit-appearance:none;}
 .field input::placeholder,.field textarea::placeholder{color:#999;}
-.field select{color:#fff;}
+.field select{color:#000;}
 .field select option{background:#f5f5f5;color:#000;}
 .field input:focus,.field select:focus,.field textarea:focus{border-color:#ff1493;background:#fff;}
 .field select{cursor:pointer;}
@@ -169,13 +169,13 @@ footer{background:#f5f5f5;border-top:1px solid #ddd;padding:32px 56px;display:fl
     <div>
       <div class="sec-label">Events</div>
       <div class="sec-title">Book Us</div>
-      <p style="font-size:14px;color:#fff;line-height:1.9;max-width:340px;">
+      <p style="font-size:14px;color:#000;line-height:1.9;max-width:340px;">
         Churches, revivals, conferences, block parties, community events. Wherever God sends us we show up. Fill out the form and we will be in touch ASAP.
       </p>
       <div style="margin-top:32px;">
         <div style="font-size:10px;letter-spacing:4px;color:#ff1493;text-transform:uppercase;font-weight:700;margin-bottom:12px;">Follow Us</div>
         <a href="https://www.youtube.com/@god1stJudeandMissyPie" target="_blank" rel="noopener"
-           style="font-size:11px;color:#fff;text-decoration:none;letter-spacing:2px;text-transform:uppercase;font-weight:700;transition:color 0.2s;display:block;"
+           style="font-size:11px;color:#000;text-decoration:none;letter-spacing:2px;text-transform:uppercase;font-weight:700;transition:color 0.2s;display:block;"
            onmouseover="this.style.color='#ff1493'" onmouseout="this.style.color='#333'">
           YouTube @god1stJudeandMissyPie
         </a>
@@ -331,10 +331,6 @@ async function submitBooking() {
   btn.disabled = false;
 }
 
-
-</script>
-</body>
-</html>
 
 </script>
 </body>
