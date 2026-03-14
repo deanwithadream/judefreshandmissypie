@@ -1,7 +1,7 @@
 const https = require('https');
 
 exports.handler = async function(event) {
-  const API_KEY = process.env.YOUTUBE_API_KEY;
+  const API_KEY = process.env.YT_KEY;
 
   function fetchURL(url) {
     return new Promise((resolve, reject) => {
